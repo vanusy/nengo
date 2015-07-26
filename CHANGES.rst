@@ -22,6 +22,11 @@ Release History
 2.4.1 (unreleased)
 ==================
 
+** Added **
+
+- Added lower bound of magnitude option to UniformHypersphere distribution.
+  (`#799 <https://github.com/nengo/nengo/pull/799>`_)
+
 
 
 2.4.0 (April 18, 2017)
