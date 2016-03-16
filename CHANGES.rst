@@ -47,6 +47,9 @@ Release History
   `#1077 <https://github.com/nengo/nengo/pull/1077>`_)
 - Tweaked ``rasterplot`` so that spikes from different neurons don't overlap.
   (`#1121 <https://github.com/nengo/nengo/pull/1121>`_)
+- Added a new advanced example on how adjusting ensemble tuning curves can
+  improve function approximation.
+  (`#1129 <https://github.com/nengo/nengo/pull/1129>_)
 
 **Bug fixes**
 
