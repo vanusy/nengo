@@ -22,6 +22,17 @@ Release History
 2.2.0 (unreleased)
 ==================
 
+**Improvements**
+
+- Expanded the documentation to cover number of additional topics:
+
+  * the Nengo RC settings file
+  * how to get the optimal performance out of Nengo
+
+  (`#1017 <https://github.com/nengo/nengo/issues/1017>`_,
+  `#1119 <https://github.com/nengo/nengo/issues/1119>`_,
+  `#1130 <https://github.com/nengo/nengo/pull/1130>`_)
+
 **Bug fixes**
 
 - The synapse methods ``filt`` and ``filtfilt`` now support lists as input.
