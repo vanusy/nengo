@@ -8,6 +8,7 @@ User Guide
    frontend_api
    networks
    spa
+   advanced
    backend_api
    changelog
    history
