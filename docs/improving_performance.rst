@@ -74,7 +74,7 @@ Thus, they are a trade-off and the best point therein depends on your exact use
 case.
 
 While the run time is usually the most important aspect, sometimes the memory
-consumption can be the main problem instead.
+consumption can be the main problem.
 
 
 Decoder caching
@@ -87,7 +87,7 @@ decoders. Because of that, it is possible to cache the decoders. The first
 build of a model will still take about the same time (technically a bit longer,
 because the computed decoders will be stored), but all subsequent builds of the
 same model can just load the stored decoders and will be faster. This will also
-work to some degree if changes to the model are made, but of course only for
+work to some degree if changes to the model are made, but only for
 the unchanged parts.
 
 To enable the decoder caching where possible, it is only required to set a seed
@@ -97,8 +97,8 @@ on the model like so::
 
 There are :ref:`a few configuration options <nengorc-decoder_cache>` for more
 advanced control of the cache. The most important might be the possibility to
-control the path where the cache files are stored as on high performance
-clusters certain file systems might provide a better performance.
+control the path where the cache files are stored. On high performance
+clusters, certain file systems might provide a better performance.
 
 
 Operator graph optimizer
@@ -106,8 +106,8 @@ Operator graph optimizer
 
 *Influences build time, simulation time, and memory consumption.*
 
-On modern processors huge speed improvements are possible if memory access
-occurs in a linear manner. By default Nengo optimizes its internal data
+On modern processors, huge speed improvements are possible if memory access
+occurs in a linear manner. By default, Nengo optimizes its internal data
 structures (the "operator graph") to achieve this. However, this can increase
 build times significantly and in some cases it can be better to turn this
 optimization off to have a faster build at the cost of slower simulation run
@@ -155,7 +155,7 @@ Adjusting model structure
 
 Some aspects of the model structure, apart from the pure size of the model,
 influence performance aspects. Ensembles with many neurons will take a long
-time to build and consume a lot memory during the process. Sometimes it is
+time to build and consume a lot of memory during the process. Sometimes it is
 feasible to split such ensembles into multiple smaller ensembles (the
 :class:`nengo.networks.EnsembleArray` is helpful for that). Alternatively,
 using the :class:`nengo.utils.least_squares_solvers.RandomizedSVD` can at least
@@ -170,9 +170,9 @@ Limiting probed data
 
 *Influences mainly memory consumption.*
 
-Obviously, all data that gets probed in the model has to be stored in memory.
-Depending on how long the simulation runs for and how many things get probed
+All data that gets probed in the model has to be stored in memory.
+Depending on how long the simulation runs for and how many things get probed,
 this might contribute a significant amount to the memory consumption. By
-reducing the number of probed object the memory consumption can be reduced. An
+reducing the number of probed objects, the memory consumption can be reduced. An
 alternative is to not record a value for every time step. Probes accept
 a ``sample_every=`` argument to reduce the number of recorded samples.

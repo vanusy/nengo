@@ -78,7 +78,7 @@ Default: ``True``
 
 Whether to raise simplified exceptions. These usually provide a better
 indication of the error in the model definition. But they hide details about
-where the exception occurred within the Nengo internals. Thus, Nengo developer
+where the exception occurred within the Nengo internals. Thus, Nengo developers
 might want to turn simplified exceptions off.
 
 .. _nengorc-OpMergeOptimizer:
