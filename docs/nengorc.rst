@@ -7,13 +7,15 @@ those listed first:
 
 1. ``nengorc`` in the current directory. This is intended to allow for project
    specific settings without hard coding them in the model description.
+
 2. An operating system specific file in the user's home directory.
 
    * Windows: ``%userprofile%\.nengo\nengorc``
+
    * Other (OS X, Linux): ``~/.config/nengo/nengorc``
 
-3. ``INSTALL/nengo-data/nengorc`` (where `INSTALL` is the installation directory
-    of the Nengo package)
+3. ``INSTALL/nengo-data/nengorc`` (where ``INSTALL`` is the
+   installation directory of the Nengo package).
 
 The RC file is divided into sections by lines containing the section name
 in brackets, i.e. ``[section]``. A setting is set by giving the name followed
@@ -22,10 +24,11 @@ comments.
 
 Example
 -------
+
 This example demonstrates how to set settings in an RC file::
 
     [decoder_cache]
-    size: 536870912  # setting the decoder cache size to 512MiB.
+    size: 512 MB  # setting the decoder cache size to 512MB.
 
 Configuration options
 ---------------------

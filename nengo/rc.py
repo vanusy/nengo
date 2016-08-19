@@ -20,7 +20,7 @@ Example
 This example demonstrates how to set settings in an RC file:
 
     [decoder_cache]
-    size: 536870912  # setting the decoder cache size to 512MiB.
+    size: 512 MB  # setting the decoder cache size to 512MB.
 """
 
 import logging
