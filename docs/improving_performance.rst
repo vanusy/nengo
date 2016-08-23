@@ -30,7 +30,7 @@ To improve build times
 To improve run times
 ^^^^^^^^^^^^^^^^^^^^
 
-1. Enable the operator graph optimizer::
+1. Enable the operator graph optimizer (and install `SciPy <https://www.scipy.org/>`_)::
 
     with nengo.Config(nengo.builder.optimizer.OpMergeOptimizer) as cfg:
         cfg[nengo.builder.optimizer.OpMergeOptimizer].enabled = True
@@ -128,6 +128,16 @@ Another situation where it is helpful to disable the optimizer is when the peak
 memory usage is too high. The optimizer can use up to twice as much memory
 as would be required without the optimizer. Note that limiting the optimization
 passes has no major influence on memory consumption.
+
+SciPy
+-----
+
+*Influences simulation time.*
+
+To gain the maximum performance gain from the operator graph optimizer (see
+previous section), `SciPy <https://www.scipy.org/>`_ needs to be installed.
+When the operator graph optimizer is deactivated, the availability of SciPy has
+no effect on the performance.
 
 nengo_ocl
 ---------
