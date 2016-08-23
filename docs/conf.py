@@ -32,7 +32,8 @@ autodoc_member_order = 'bysource'  # default is alphabetical
 
 # -- sphinx.ext.intersphinx
 intersphinx_mapping = {
-    'numpy': ('http://docs.scipy.org/doc/numpy', None)
+    'numpy': ('http://docs.scipy.org/doc/numpy', None),
+    'python': ('https://docs.python.org/3/', None),
 }
 
 # -- sphinx.ext.todo

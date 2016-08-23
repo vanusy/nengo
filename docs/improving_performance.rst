@@ -90,7 +90,7 @@ To enable the decoder caching, set a seed on the network like so::
 
     with nengo.Networks(seed=1) as model:
 
-There are :ref:`a few configuration options <nengorc-decoder_cache>` for more
+There are :ref:`a few configuration options <nengorc>` for more
 advanced control of the cache. The most important might be the possibility to
 control the path where the cache files are stored. On high performance
 clusters, certain file systems might provide a better performance.
@@ -122,7 +122,7 @@ passes::
             sim.run(...)
 
 It is also possible to set the optimizer settings globally in
-:ref:`the configuration file <nengorc-OpMergeOptimizer>`.
+:ref:`the configuration file <nengorc>`.
 
 Another situation where it is helpful to disable the optimizer is when the peak
 memory usage is too high. The optimizer can use up to twice as much memory
