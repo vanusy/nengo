@@ -58,6 +58,7 @@
 
 
 # --- Settings for the operator graph optimizer
+[OpMergeOptimizer]
 
 # Enable or disable the operator graph optimizer. (bool)
 #enabled = True
