@@ -27,6 +27,10 @@ Release History
 - It is now possible to probe ``scaled_encoders`` on ensembles.
   (`#1167 <https://github.com/nengo/nengo/pull/1167>`_,
   `#1117 <https://github.com/nengo/nengo/issues/1117>`_)
+- Added a ``n_neurons`` property to ``Network``, which gives the
+  number of neurons in the network, including all subnetworks.
+  (`#435 <https://github.com/nengo/nengo/issues/435>`_,
+  `#1186 <https://github.com/nengo/nengo/pull/1186>`_)
 
 **Changed**
 
@@ -34,6 +38,11 @@ Release History
   making repeated access much faster.
   (`#1076 <https://github.com/nengo/nengo/issues/1076>`_,
   `#1175 <https://github.com/nengo/nengo/pull/1175>`_)
+- ``EnsembleArray.n_neurons`` now gives the total number of neurons
+  in all ensembles, including those in subnetworks.
+  To get the number of neurons in each ensemble,
+  use ``EnsembleArray.n_neurons_per_ensemble``.
+  (`#1186 <https://github.com/nengo/nengo/pull/1186>`_)
 
 **Deprecated**
 
