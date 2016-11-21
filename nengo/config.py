@@ -446,3 +446,8 @@ class ConfigParam(nengo.params.TypeCheckedParameter):
 
     def __init__(self, name, **kwargs):
         super(ConfigParam, self).__init__(name, Config, **kwargs)
+
+    def validate(self, instance, value):
+        if value is None:
+            value = Config()
+        return super(ConfigParam, self).validate(instance, value)
