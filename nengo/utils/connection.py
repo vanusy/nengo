@@ -107,3 +107,21 @@ def eval_point_decoding(conn, sim, eval_points=None):
     decoded = np.dot(activities, weights.T)
     targets = get_targets(conn, eval_points)
     return eval_points, targets, decoded
+
+
+def function_name(func):
+    """Returns the name of a connection function (robust to the different
+    types of objects that can be passed as a function argument).
+
+    Parameters
+    ----------
+    func : callable or array-like
+        object used as function argument
+
+    Returns
+    -------
+    str
+        name of function object
+    """
+
+    return getattr(func, "__name__", func.__class__.__name__)
