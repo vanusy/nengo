@@ -1,7 +1,7 @@
 import numpy as np
 
 from nengo.builder import Builder, Operator, Signal
-from nengo.builder.operator import DotInc, ElementwiseInc, Reset
+from nengo.builder.operator import DotInc, ElementwiseInc, SlicedCopy, Reset
 from nengo.connection import LearningRule
 from nengo.ensemble import Ensemble, Neurons
 from nengo.exceptions import BuildError
@@ -347,8 +347,7 @@ def build_learning_rule(model, rule):
         raise BuildError("Unknown target %r" % rule.modifies)
 
     assert delta.shape == target.shape
-    model.add_op(
-        ElementwiseInc(model.sig['common'][1], delta, target, tag=tag))
+    model.add_op(SlicedCopy(delta, target, inc=True, tag=tag))
     model.sig[rule]['delta'] = delta
 
     model.params[rule] = None  # by default, no build-time info to return
