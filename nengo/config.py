@@ -329,6 +329,14 @@ class Config(object):
                               "current context to be '%s' but instead got "
                               "'%s'." % (self, config))
 
+    def __contains__(self, key):
+        try:
+            self[key]
+        except ConfigError:
+            return False
+        else:
+            return True
+
     def __getitem__(self, key):
         # If we have the exact thing, we'll just return it
         if key in self.params:

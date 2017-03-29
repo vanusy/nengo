@@ -204,3 +204,21 @@ def test_instance_fallthrough():
     assert config[A].amount == 1
     assert config[inst1].amount == 2
     assert config[inst2].amount == 1
+
+
+def test_containment():
+    class A(object):
+        pass
+
+    class B(A):
+        pass
+
+    cfg1 = nengo.Config(A)
+    assert 0 not in cfg1
+    assert A in cfg1
+    assert B in cfg1
+
+    cfg2 = nengo.Config(B)
+    assert 0 not in cfg2
+    assert A not in cfg2
+    assert B in cfg2
