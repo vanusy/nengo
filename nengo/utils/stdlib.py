@@ -204,11 +204,7 @@ else:
 
 # get_terminal_size was introduced in Python 3.3
 if hasattr(shutil, 'get_terminal_size'):
-    def get_terminal_size(fallback=(80, 24)):
-        try:
-            return shutil.get_terminal_size(fallback)
-        except Exception:
-            return terminal_size(*fallback)
+    get_terminal_size = shutil.get_terminal_size
 else:
     def get_terminal_size(fallback=(80, 24)):
         w, h = fallback
