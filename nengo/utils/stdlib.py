@@ -208,7 +208,7 @@ if hasattr(shutil, 'get_terminal_size'):
         try:
             return shutil.get_terminal_size(fallback)
         except Exception:
-            return terminal_size(*fallback)
+            return terminal_size(fallback)
 else:
     def get_terminal_size(fallback=(80, 24)):
         w, h = fallback
