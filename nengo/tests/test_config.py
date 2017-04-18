@@ -210,15 +210,6 @@ def test_containment():
     class A(object):
         pass
 
-    class B(A):
-        pass
-
-    cfg1 = nengo.Config(A)
-    assert 0 not in cfg1
-    assert A in cfg1
-    assert B in cfg1
-
-    cfg2 = nengo.Config(B)
-    assert 0 not in cfg2
-    assert A not in cfg2
-    assert B in cfg2
+    cfg = nengo.Config(A)
+    with pytest.raises(TypeError):
+        A in cfg

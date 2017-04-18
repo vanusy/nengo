@@ -330,12 +330,7 @@ class Config(object):
                               "'%s'." % (self, config))
 
     def __contains__(self, key):
-        try:
-            self[key]
-        except ConfigError:
-            return False
-        else:
-            return True
+        raise TypeError('Containment in Config objects cannot be tested.')
 
     def __getitem__(self, key):
         # If we have the exact thing, we'll just return it
