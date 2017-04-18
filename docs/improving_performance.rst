@@ -19,10 +19,8 @@ To improve build times
 
 2. Disable the operator graph optimizer::
 
-    with nengo.Config(nengo.builder.optimizer.OpMergeOptimizer) as cfg:
-        cfg[nengo.builder.optimizer.OpMergeOptimizer].enabled = False
-        with nengo.Simulator(model) as sim:
-            sim.run(...)
+    with nengo.Simulator(model, optimize=False) as sim:
+        sim.run(...)
 
 3. Reduce the number of neurons in very large ensembles, or consider using the
    `.RandomizedSVD` solver.
@@ -32,10 +30,8 @@ To improve run times
 
 1. Enable the operator graph optimizer (and install `SciPy <https://www.scipy.org/>`_)::
 
-    with nengo.Config(nengo.builder.optimizer.OpMergeOptimizer) as cfg:
-        cfg[nengo.builder.optimizer.OpMergeOptimizer].enabled = True
-        with nengo.Simulator(model) as sim:
-            sim.run(...)
+    with nengo.Simulator(model, optimize=True) as sim:
+        sim.run(...)
 
 2. Consider switching to the `nengo_ocl <https://github.com/nengo/nengo_ocl>`_
    backend if you have a powerful GPU.
@@ -45,10 +41,8 @@ To lower peak memory consumption
 
 1. Disable the operator graph optimizer::
 
-    with nengo.Config(nengo.builder.optimizer.OpMergeOptimizer) as cfg:
-        cfg[nengo.builder.optimizer.OpMergeOptimizer].enabled = False
-        with nengo.Simulator(model) as sim:
-            sim.run(...)
+    with nengo.Simulator(model, optimize=False) as sim:
+        sim.run(...)
 
 2. Reduce the number of neurons in very large ensembles, consider replacing
    them with multiple smaller ensembles (`.EnsembleArray` is useful for that).
@@ -105,29 +99,16 @@ occurs in a linear manner. By default, Nengo optimizes its internal data
 structures (the "operator graph") to achieve this. However, this can increase
 build times significantly and in some cases it can be better to turn this
 optimization off to speed up the build at the cost of slowing simulation run
-times. To turn the optimizer off, the simulator has to be created with
-configuration applied as shown here::
+times. To turn the optimizer off, the simulator's *optimize* argument has to be
+set to *False*::
 
-    with nengo.Config(nengo.builder.optimizer.OpMergeOptimizer) as cfg:
-        cfg[nengo.builder.optimizer.OpMergeOptimizer].enabled = True
-        with nengo.Simulator(model) as sim:
-            sim.run(...)
-
-An intermediary solution is possible by limiting the number of optimization
-passes::
-
-    with nengo.Config(nengo.builder.optimizer.OpMergeOptimizer) as cfg:
-        cfg[nengo.builder.optimizer.OpMergeOptimizer].max_passes = 5
-        with nengo.Simulator(model) as sim:
-            sim.run(...)
-
-It is also possible to set the optimizer settings globally in
-:ref:`the configuration file <nengorc>`.
+    with nengo.Simulator(model, optimize=False) as sim:
+        sim.run(...)
 
 Another situation where it is helpful to disable the optimizer is when the peak
-memory usage is too high. The optimizer can use up to twice as much memory
-as would be required without the optimizer. Note that limiting the optimization
-passes has no major influence on memory consumption.
+memory usage is too high. The optimizer can use up to three times as much
+memory as would be required without the optimizer. Note that limiting the
+optimization passes has no major influence on memory consumption.
 
 SciPy
 -----
