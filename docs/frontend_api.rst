@@ -4,6 +4,67 @@ Nengo Modelling API
 
 .. default-role:: obj
 
+.. autosummary::
+   :nosignatures:
+
+   nengo.Network
+   nengo.Ensemble
+   nengo.ensemble.Neurons
+   nengo.Node
+   nengo.Connection
+   nengo.connection.LearningRule
+   nengo.Probe
+   nengo.dists.Distribution
+   nengo.dists.get_samples
+   nengo.dists.Uniform
+   nengo.dists.Gaussian
+   nengo.dists.Exponential
+   nengo.dists.UniformHypersphere
+   nengo.dists.Choice
+   nengo.dists.Samples
+   nengo.dists.PDF
+   nengo.dists.SqrtBeta
+   nengo.dists.SubvectorLength
+   nengo.dists.CosineSimilarity
+   nengo.neurons.NeuronType
+   nengo.Direct
+   nengo.RectifiedLinear
+   nengo.Sigmoid
+   nengo.LIF
+   nengo.LIFRate
+   nengo.AdaptiveLIF
+   nengo.AdaptiveLIFRate
+   nengo.Izhikevich
+   nengo.learning_rules.LearningRuleType
+   nengo.PES
+   nengo.BCM
+   nengo.Oja
+   nengo.Voja
+   nengo.Process
+   nengo.processes.PresentInput
+   nengo.processes.FilteredNoise
+   nengo.processes.BrownNoise
+   nengo.processes.WhiteNoise
+   nengo.processes.WhiteSignal
+   nengo.synapses.Synapse
+   nengo.synapses.filt
+   nengo.synapses.filtfilt
+   nengo.LinearFilter
+   nengo.Lowpass
+   nengo.Alpha
+   nengo.synapses.Triangle
+   nengo.solvers.Solver
+   nengo.solvers.Lstsq
+   nengo.solvers.LstsqNoise
+   nengo.solvers.LstsqMultNoise
+   nengo.solvers.LstsqL2
+   nengo.solvers.LstsqL2nz
+   nengo.solvers.LstsqL1
+   nengo.solvers.LstsqDrop
+   nengo.solvers.Nnls
+   nengo.solvers.NnlsL2
+   nengo.solvers.NnlsL2nz
+
 Nengo Objects
 =============
 
