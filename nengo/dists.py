@@ -223,30 +223,26 @@ class UniformHypersphere(Distribution):
         over the surface of the hyperphere (True),
         or within the hypersphere (False). Defaults to False.
     min_magnitude : Number, optional (Default: 0)
-        Lower bound on the returned vector magnitudes (i.e.
-        magnitude >= min_magnitude). Must be in the range [0, 1]; defaults
-        to 0. Values outside this range will be clipped to this range. Ignored
-        if ``surface == True``
+        Lower bound on the returned vector magnitudes (such that they are in
+        the range ``[min_magnitude, 1]``). Must be in the range [0, 1).
+        Defaults to 0. Ignored if ``surface == True``.
     """
 
     surface = BoolParam('surface')
-    min_magnitude = NumberParam('min_magnitude', low=0, high=1)
+    min_magnitude = NumberParam('min_magnitude', low=0, high=1, high_open=True)
 
     def __init__(self, surface=False, min_magnitude=0):
         super(UniformHypersphere, self).__init__()
-        self.min_magnitude = np.clip(min_magnitude, 0, 1)
         self.surface = surface
+        self.min_magnitude = min_magnitude
 
     def __repr__(self):
-        rep = ""
-        if self.min_magnitude != 0 and self.surface:
-            rep = "surface=True, min_magnitude=%r" % self.min_magnitude
-        elif self.min_magnitude != 0:
-            rep = "min_magnitude=%r" % self.min_magnitude
-        elif self.surface:
-            rep = "surface=True"
-
-        return "UniformHypersphere(%s)" % rep
+        args = []
+        if self.surface:
+            args.append("surface=%s" % self.surface)
+        if self.min_magnitude != 0:
+            args.append("min_magnitude=%r" % self.min_magnitude)
+        return "%s(%s)" % (type(self).__name__, ', '.join(args))
 
     def sample(self, n, d, rng=np.random):
         if d is None or d < 1:  # check this, since other dists allow d = None
@@ -261,8 +257,8 @@ class UniformHypersphere(Distribution):
         # Generate magnitudes for vectors from uniform distribution.
         # The (1 / d) exponent ensures that samples are uniformly distributed
         # in n-space and not all bunched up at the centre of the sphere.
-        samples *= rng.uniform(low=self.min_magnitude ** d, high=1,
-                               size=(n, 1)) ** (1.0 / d)
+        samples *= rng.uniform(
+            low=self.min_magnitude**d, high=1, size=(n, 1))**(1. / d)
 
         return samples
 
