@@ -1,7 +1,7 @@
 """These solvers are to be passed as arguments to solvers defined in
 nengo.Solver object.
 
-For example: 
+For example:
 
     nengo.Connection(ens_a, ens_b, solver=LstsqL2(solver=RandomizedSVD()))
 
